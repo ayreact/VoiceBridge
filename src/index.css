@@ -1,0 +1,205 @@
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700&family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* VoiceBridge Design System - Multilingual Voice Assistant */
+
+@layer base {
+  :root {
+    --background: 0 0% 98%;
+    --foreground: 195 100% 15%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 195 100% 15%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 195 100% 15%;
+
+    /* VoiceBridge Brand Colors */
+    --primary: 195 100% 29%; /* #197278 Teal */
+    --primary-foreground: 0 0% 100%;
+    --primary-light: 195 65% 45%;
+    --primary-dark: 195 100% 22%;
+
+    --secondary: 32 95% 68%; /* #F4A261 Soft Orange */
+    --secondary-foreground: 195 100% 15%;
+    --secondary-light: 32 95% 75%;
+    --secondary-dark: 32 95% 58%;
+
+    --accent: 174 62% 40%; /* #2A9D8F Greenish Blue */
+    --accent-foreground: 0 0% 100%;
+    --accent-light: 174 62% 50%;
+    --accent-dark: 174 62% 30%;
+
+    --muted: 0 0% 96%;
+    --muted-foreground: 195 25% 45%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 195 20% 90%;
+    --input: 195 20% 94%;
+    --ring: 195 100% 29%;
+
+    --radius: 0.75rem;
+    
+    /* Voice Assistant Specific Colors */
+    --voice-active: 0 100% 67%; /* Red for recording */
+    --voice-inactive: 195 15% 70%;
+    --success: 142 76% 36%;
+    --warning: 45 93% 47%;
+    
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--accent)));
+    --gradient-secondary: linear-gradient(135deg, hsl(var(--secondary)), hsl(var(--secondary-light)));
+    --gradient-hero: linear-gradient(135deg, hsl(var(--primary-dark)), hsl(var(--primary)), hsl(var(--accent)));
+    
+    /* Shadows */
+    --shadow-soft: 0 2px 20px hsl(var(--primary) / 0.1);
+    --shadow-medium: 0 8px 30px hsl(var(--primary) / 0.15);
+    --shadow-strong: 0 15px 50px hsl(var(--primary) / 0.2);
+    
+    /* Animations */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-spring: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 195 45% 8%;
+    --foreground: 195 20% 95%;
+
+    --card: 195 40% 10%;
+    --card-foreground: 195 20% 95%;
+
+    --popover: 195 40% 10%;
+    --popover-foreground: 195 20% 95%;
+
+    --primary: 195 85% 70%;
+    --primary-foreground: 195 45% 8%;
+    --primary-light: 195 75% 75%;
+    --primary-dark: 195 85% 60%;
+
+    --secondary: 32 85% 65%;
+    --secondary-foreground: 195 45% 8%;
+    --secondary-light: 32 85% 72%;
+    --secondary-dark: 32 85% 55%;
+
+    --accent: 174 55% 60%;
+    --accent-foreground: 195 45% 8%;
+    --accent-light: 174 55% 68%;
+    --accent-dark: 174 55% 50%;
+
+    --muted: 195 35% 15%;
+    --muted-foreground: 195 15% 65%;
+
+    --destructive: 0 75% 55%;
+    --destructive-foreground: 195 20% 95%;
+
+    --border: 195 30% 20%;
+    --input: 195 30% 18%;
+    --ring: 195 85% 70%;
+    
+    --voice-active: 0 85% 60%;
+    --voice-inactive: 195 20% 40%;
+    --success: 142 65% 45%;
+    --warning: 45 85% 55%;
+    
+    --gradient-primary: linear-gradient(135deg, hsl(var(--primary-dark)), hsl(var(--accent-dark)));
+    --gradient-secondary: linear-gradient(135deg, hsl(var(--secondary-dark)), hsl(var(--secondary)));
+    --gradient-hero: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-light)), hsl(var(--accent-light)));
+    
+    --shadow-soft: 0 2px 20px hsl(0 0% 0% / 0.3);
+    --shadow-medium: 0 8px 30px hsl(0 0% 0% / 0.4);
+    --shadow-strong: 0 15px 50px hsl(0 0% 0% / 0.5);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-inter antialiased;
+    font-feature-settings: "cv11", "ss01";
+    font-variation-settings: "opsz" 32;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-merriweather;
+  }
+}
+
+@layer components {
+  /* Voice Recording Animation */
+  .voice-recording {
+    @apply relative;
+  }
+
+  .voice-recording::before {
+    content: '';
+    @apply absolute inset-0 rounded-full;
+    background: hsl(var(--voice-active));
+    animation: pulse-voice 1.5s ease-in-out infinite;
+    z-index: -1;
+  }
+
+  @keyframes pulse-voice {
+    0%, 100% { transform: scale(1); opacity: 0.7; }
+    50% { transform: scale(1.15); opacity: 0.3; }
+  }
+
+  /* Gradient Text */
+  .text-gradient {
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Glassmorphism Effect */
+  .glass {
+    background: hsla(var(--card), 0.8);
+    backdrop-filter: blur(10px);
+    border: 1px solid hsla(var(--border), 0.3);
+  }
+
+  /* Mobile-first button improvements */
+  .btn-mobile {
+    @apply min-h-[48px] px-6 py-3 text-base font-medium;
+    touch-action: manipulation;
+  }
+}
+
+@layer utilities {
+  .text-shadow {
+    text-shadow: 0 2px 4px hsla(var(--foreground), 0.1);
+  }
+  
+  .animate-float {
+    animation: float 3s ease-in-out infinite;
+  }
+  
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+  }
+}
