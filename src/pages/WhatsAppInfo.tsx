@@ -13,7 +13,8 @@ import {
   ArrowRight,
   CheckCircle,
   Info,
-  QrCode
+  QrCode,
+  PlusCircle
 } from 'lucide-react';
 
 const WHATSAPP_NUMBER = "+1415523886"; // Replace with actual WhatsApp Business number
@@ -26,6 +27,12 @@ const supportedLanguages = [
 ];
 
 const features = [
+  {
+    title: "Join Sandbox",
+    description: "Join the Twilio Sandbox to access VoiceBridge",
+    icon: PlusCircle,
+    examples: ["Save WhatsApp Number", "Send code 'join pen-willing'", "Get connected to VoiceBridge AI"]
+  },
   {
     title: "Voice Messages",
     description: "Send voice notes directly to VoiceBridge",
@@ -42,7 +49,7 @@ const features = [
 
 export const WhatsAppInfo: React.FC = () => {
   const handleOpenWhatsApp = () => {
-    const message = encodeURIComponent("Hello VoiceBridge! I'd like to try your AI assistant.");
+    const message = encodeURIComponent("join pen-willing");
     window.open(`https://wa.me/${WHATSAPP_NUMBER.replace(/[^0-9]/g, '')}?text=${message}`, '_blank');
   };
 
@@ -120,7 +127,7 @@ END:VCARD`;
             How to Use WhatsApp Access
           </h2>
           
-          <div className="grid gap-10 md:grid-cols-2 max-w-5xl mx-auto">
+          <div className="grid gap-8 md:grid-cols-3 max-w-5xl mx-auto">
             {features.map((feature) => (
               <Card key={feature.title} className="text-center hover:shadow-medium transition-all duration-300">
                 <CardHeader>
