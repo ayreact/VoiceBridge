@@ -50,7 +50,7 @@ const features = [
 export const WhatsAppInfo: React.FC = () => {
   const handleOpenWhatsApp = () => {
     const message = encodeURIComponent("join pen-willing");
-    window.open(`https://wa.me/${WHATSAPP_NUMBER.replace(/[^0-9]/g, '')}?text=${message}`, '_blank');
+    window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${message}`, '_blank');
   };
 
   const handleAddContact = () => {
