@@ -17,7 +17,7 @@ import {
   PlusCircle
 } from 'lucide-react';
 
-const WHATSAPP_NUMBER = "+1415523886"; // Replace with actual WhatsApp Business number
+const WHATSAPP_NUMBER = "+1(415)523886";
 
 const supportedLanguages = [
   { code: 'en', name: 'English', flag: '🇬🇧' },
