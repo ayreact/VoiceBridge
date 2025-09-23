@@ -17,7 +17,7 @@ import {
   PlusCircle
 } from 'lucide-react';
 
-const WHATSAPP_NUMBER = "+1415523886";
+const WHATSAPP_NUMBER = "+14155238886";
 
 const supportedLanguages = [
   { code: 'en', name: 'English', flag: '🇬🇧' },
