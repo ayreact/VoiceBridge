@@ -16,7 +16,7 @@ import {
   Info
 } from 'lucide-react';
 
-const IVR_NUMBER = "+12279990856"; // Replace with actual Twilio number
+const IVR_NUMBER = "+19126620419";
 
 const supportedLanguages = [
   { code: 'en', name: 'English', flag: '🇬🇧' },
